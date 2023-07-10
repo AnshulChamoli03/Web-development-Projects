@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>weather forecast app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #C1CFEA;">
+    <div style="text-align: center;">
+        <h1 style="align-content: center;">Weather Today</h1>
+    </div>
+    <nav class="navbar bg-body-tertiary" style="align-content: center;">
+        <div class="container-fluid" style="padding-left: 40%; padding-right: 40%;" ;">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" id="city" type="search" placeholder="City" aria-label="Search"><br>
+                <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 25px;">
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col" style="visibility: hidden;">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Free</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$0<small
+                                    class="text-body-secondary fw-light">/mo</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>10 users included</li>
+                                <li>2 GB of storage</li>
+                                <li>Email support</li>
+                                <li>Help center access</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Weather for <span id="cityName"></span></h4>
+                        </div>
+                        <div class="card-body">
+
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Temperature is <span id="temp"></span></li>
+                                <li>MAX Temperature is <span id="maxtemp0"></span></li>
+                                <li>MIN Temperature is <span id="mintemp0"></span></li>
+                                <li>Humidity is <span id="avghumidity0"></span></li>
+                                <li>Cloud pct is <span id="totalprecietation0"></span></li>
+                                <li>Feels Like is <span id="feelslike"></span></li>
+                                <li>Wind degrees is <span id="wind_degree"></span></li>
+                                <li>Wind Speed is <span id="wind_kph"></span></li>
+                                <li>Sunrise is <span id="sunrise"></span></li>
+                                <li>Sunset is <span id="sunset"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="visibility: hidden;">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Enterprise</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$29<small
+                                    class="text-body-secondary fw-light">/mo</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>30 users included</li>
+                                <li>15 GB of storage</li>
+                                <li>Phone and email support</li>
+                                <li>Help center access</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-6 text-center mb-4">Weather this Week</h2>
+
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th style="width: 7%;"> Forecast for</th>
+                            <th style="width: 13%;"><span id = "date1"></span></th>
+                            <th style="width: 13%;"><span id = "date2"></span></th>
+                            <th style="width: 13%;"><span id = "date3"></span></th>
+                            <th style="width: 13%;"><span id = "date4"></span></th>
+                            <th style="width: 13%;"><span id = "date5"></span></th>
+                            <th style="width: 13%;"><span id = "date6"></span></th> 
+                            <th style="width: 13%;"><span id = "date7"></span></th> 
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Max Temp (C)</th>
+                            <td><spam id = "maxtemp1"></spam></td>
+                            <td><spam id = "maxtemp2"></spam></td>
+                            <td><spam id = "maxtemp3"></spam></td>
+                            <td><spam id = "maxtemp4"></spam></td>
+                            <td><spam id = "maxtemp5"></spam></td>
+                            <td><spam id = "maxtemp6"></spam></td>
+                            <td><spam id = "maxtemp7"></spam></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Min Temp (C)</th>
+                            <td><span id ="mintemp1"></span></td>
+                            <td><span id ="mintemp2"></span></td>
+                            <td><span id ="mintemp3"></span></td>
+                            <td><span id ="mintemp4"></span></td>
+                            <td><span id ="mintemp5"></span></td>
+                            <td><span id ="mintemp6"></span></td>
+                            <td><span id ="mintemp7"></span></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Humidity</th>
+                            <td><span id = "avghumidity1"></span></td>
+                            <td><span id = "avghumidity2"></span></td>
+                            <td><span id = "avghumidity3"></span></td>
+                            <td><span id = "avghumidity4"></span></td>
+                            <td><span id = "avghumidity5"></span></td>
+                            <td><span id = "avghumidity6"></span></td>
+                            <td><span id = "avghumidity7"></span></td>
+                       </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Total Precipitation (mm)</th>
+                            <td><span id ="totalprecietation1"></span></td>
+                            <td><span id ="totalprecietation2"></span></td>
+                            <td><span id ="totalprecietation3"></span></td>
+                            <td><span id ="totalprecietation4"></span></td>
+                            <td><span id ="totalprecietation5"></span></td>
+                            <td><span id ="totalprecietation6"></span></td>
+                            <td><span id ="totalprecietation7"></span></td>  
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '4c442e1d7a294462a7152215230404',
+                'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+            }
+        };
+        const getweather = (city) => { 
+            cityName.innerHTML = city
+            fetch('http://api.weatherapi.com/v1/forecast.json?key=4c442e1d7a294462a7152215230404&q='+city+'&days=8&aqi=no&alerts=no',options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                console.log(response.forecast.forecastday[0].day.maxtemp_c);
+                maxtemp0.innerHTML = response.forecast.forecastday[0].day.maxtemp_c
+                maxtemp1.innerHTML = response.forecast.forecastday[1].day.maxtemp_c
+                maxtemp2.innerHTML = response.forecast.forecastday[2].day.maxtemp_c
+                maxtemp3.innerHTML = response.forecast.forecastday[3].day.maxtemp_c
+                maxtemp4.innerHTML = response.forecast.forecastday[4].day.maxtemp_c
+                maxtemp5.innerHTML = response.forecast.forecastday[5].day.maxtemp_c
+                maxtemp6.innerHTML = response.forecast.forecastday[6].day.maxtemp_c
+                maxtemp7.innerHTML = response.forecast.forecastday[7].day.maxtemp_c
+            
+
+                mintemp0.innerHTML = response.forecast.forecastday[0].day.mintemp_c
+                mintemp1.innerHTML = response.forecast.forecastday[1].day.mintemp_c
+                mintemp2.innerHTML = response.forecast.forecastday[2].day.mintemp_c
+                mintemp3.innerHTML = response.forecast.forecastday[3].day.mintemp_c
+                mintemp4.innerHTML = response.forecast.forecastday[4].day.mintemp_c
+                mintemp5.innerHTML = response.forecast.forecastday[5].day.mintemp_c
+                mintemp6.innerHTML = response.forecast.forecastday[6].day.mintemp_c
+                mintemp7.innerHTML = response.forecast.forecastday[7].day.mintemp_c
+
+
+                avghumidity0.innerHTML = response.forecast.forecastday[0].day.avghumidity
+                avghumidity1.innerHTML = response.forecast.forecastday[1].day.avghumidity
+                avghumidity2.innerHTML = response.forecast.forecastday[2].day.avghumidity
+                avghumidity3.innerHTML = response.forecast.forecastday[3].day.avghumidity
+                avghumidity4.innerHTML = response.forecast.forecastday[4].day.avghumidity
+                avghumidity5.innerHTML = response.forecast.forecastday[5].day.avghumidity
+                avghumidity6.innerHTML = response.forecast.forecastday[6].day.avghumidity
+                avghumidity7.innerHTML = response.forecast.forecastday[7].day.avghumidity
+
+
+                totalprecietation0.innerHTML = response.forecast.forecastday[0].day.totalprecip_mm
+                totalprecietation1.innerHTML = response.forecast.forecastday[1].day.totalprecip_mm
+                totalprecietation2.innerHTML = response.forecast.forecastday[2].day.totalprecip_mm
+                totalprecietation3.innerHTML = response.forecast.forecastday[3].day.totalprecip_mm
+                totalprecietation4.innerHTML = response.forecast.forecastday[4].day.totalprecip_mm
+                totalprecietation5.innerHTML = response.forecast.forecastday[5].day.totalprecip_mm
+                totalprecietation6.innerHTML = response.forecast.forecastday[6].day.totalprecip_mm
+                totalprecietation7.innerHTML = response.forecast.forecastday[7].day.totalprecip_mm
+
+
+                date1.innerHTML = response.forecast.forecastday[1].date 
+                date2.innerHTML = response.forecast.forecastday[2].date 
+                date3.innerHTML = response.forecast.forecastday[3].date 
+                date4.innerHTML = response.forecast.forecastday[4].date 
+                date5.innerHTML = response.forecast.forecastday[5].date 
+                date6.innerHTML = response.forecast.forecastday[6].date 
+                date7.innerHTML = response.forecast.forecastday[7].date 
+ 
+                temp.innerHTML = response.current.temp_c
+                feelslike.innerHTML = response.current.feelslike_c
+                wind_degree.innerHTML = response.current.wind_degree
+                wind_kph.innerHTML = response.current.wind_kph
+                sunrise.innerHTML = response.forecast.forecastday[0].astro.sunrise
+                sunset.innerHTML = response.forecast.forecastday[0].astro.sunset
+
+
+                
+            })
+            .catch(err => console.error(err))
+        }
+        submit.addEventListener("click", (e) => {
+            e.preventDefault()
+            setInterval(5000,getweather(city.value))})
+        
+    
+        getweather('Delhi')
+    </script>
+</body>
+
+</html>
